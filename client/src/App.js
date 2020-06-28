@@ -16,6 +16,7 @@ import Dcf from './pages/dcf/Dcf'
 import Discussion from './pages/discussion_portal/Discussion'
 import Post from './pages/discussion_portal/Post'
 import UserBlogs from './pages/discussion_portal/UserBlogs'
+import portfolio from './pages/portfolio/portfolio'
 
 function App(){
   return(
@@ -38,6 +39,7 @@ function App(){
             <Route path="/discussion/feed" component={Discussion}/>
             <Route path='/discussion/post/:post_id' component={Post} />
             <Route path="/discussion/userblogs" component={UserBlogs}/>
+            <Route path="/user/portfolio" component={portfolio}/>
           </Switch>
         </div>
       </BrowserRouter>
