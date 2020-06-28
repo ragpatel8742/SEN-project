@@ -78,14 +78,14 @@ class Header extends Component{
                                 <Button style={{marginLeft:'50px', textTransform: 'none'}}>
                                   <a><Typography variant='h5' style={{color: colors.BASE_BLUE}}>{this.state.username}</Typography></a>
                                 </Button>
-                                <Button style={{marginLeft:'15px', textTransform: 'none'}}>
+                                <Button variant="outlined" style={{marginLeft:'15px', textTransform: 'none'}}>
                                   <a href='/discussion/feed'><Typography variant='h5' style={{color: colors.BASE_BLUE}}>Discussion</Typography></a>
                                 </Button>
-                                <Button style={{marginLeft:'15px', textTransform: 'none'}}>
+                                <Button variant="outlined" style={{marginLeft:'15px', textTransform: 'none'}}>
                                   <a href='/watchlist'><Typography variant='h5' style={{color: colors.BASE_BLUE}}>Watchlist</Typography></a>
                                 </Button>
-                                <Button style={{marginLeft:'15px', textTransform: 'none'}}>
-                                  <a href='/aboutus'><Typography variant='h5' style={{color: colors.BASE_BLUE}}>About Us</Typography></a>
+                                <Button variant="outlined" style={{marginLeft:'15px', textTransform: 'none'}}>
+                                  <a href='/user/portfolio'><Typography variant='h5' style={{color: colors.BASE_BLUE}}>Portfolio</Typography></a>
                                 </Button>
                                 <Button variant="outlined" style={{marginLeft:'15px', textTransform: 'none'}}>
                                   <a href='/logout'><Typography variant='h5' style={{color: colors.BASE_BLUE}}>Logout</Typography></a>
