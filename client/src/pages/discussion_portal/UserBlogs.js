@@ -52,7 +52,7 @@ const UserBlogs = () => {
                                 </a>
                                 <Typography variant="caption">By: {post.authorName}, Published At: {post.publishDate}</Typography>
                                 
-                                <Typography style={{marginTop:'5px'}}><a href={'/discussion/post/'+post.id}>read more...</a></Typography>
+                                <Typography style={{marginTop:'5px'}}><a href={'/discussion/post/'+post.id}>Click here to read full article...</a></Typography>
                                 <div className="like-share-comment-bookmark">
                                     <a href={'/discussion/post/' + post.id}>
                                         <IconButton>
@@ -95,10 +95,10 @@ const UserBlogs = () => {
 
     function handleNewPost(e){
         e.preventDefault();
-        console.log(title);
+        //console.log(title);
         let article = JSON.stringify(content);
-        console.log(typeof article);
-        console.log(article);
+        //console.log(typeof article);
+        //console.log(article);
         let temp={
             title : title,
             article : article
