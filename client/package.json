@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "emotion": "^10.0.27",
     "material-ui": "^1.0.0-beta.47",
     "material-ui-icons": "^1.0.0-beta.36",
     "querystring": "^0.2.0",
@@ -15,7 +16,10 @@
     "react-redux": "^7.2.0",
     "react-router": "^5.1.2",
     "react-scripts": "3.4.0",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "slate": "^0.58.3",
+    "slate-history": "^0.58.3",
+    "slate-react": "^0.58.3"
   },
   "scripts": {
     "start": "react-scripts start",

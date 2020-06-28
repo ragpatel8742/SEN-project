@@ -3,6 +3,7 @@ import DiscussionHeader from './DiscussionHeader'
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
+import ArticleEditor from './ArticleEditor/';
 
 import { Box, Paper, Typography, IconButton, TextField, TextareaAutosize, Button } from '@material-ui/core';
 import ThumbUpAltOutlinedIcon from '@material-ui/icons/ThumbUpAltOutlined';
@@ -20,7 +21,13 @@ const UserBlogs = () => {
     const [email,setEmail] = useState('');
     const [posts,setPosts] = useState([]);
     const [title,setTitle] = useState('');
-    const [content,setContent] = useState('');
+    const [content,setContent] = useState([{
+                                            type: 'paragraph',
+                                            children: [
+                                              { text: '' },
+                                            ],
+                                          }
+                                        ]);
 
     useEffect(()=>{
         axios.get('/user')
@@ -45,7 +52,7 @@ const UserBlogs = () => {
                                 </a>
                                 <Typography variant="caption">By: {post.authorName}, Published At: {post.publishDate}</Typography>
                                 
-                                <Typography style={{marginTop:'5px'}}>{post.article}&nbsp;<a href={'/discussion/post/'+post.id}>read more...</a></Typography>
+                                <Typography style={{marginTop:'5px'}}><a href={'/discussion/post/'+post.id}>read more...</a></Typography>
                                 <div className="like-share-comment-bookmark">
                                     <a href={'/discussion/post/' + post.id}>
                                         <IconButton>
@@ -88,11 +95,13 @@ const UserBlogs = () => {
 
     function handleNewPost(e){
         e.preventDefault();
-        console.log(title)
-        console.log(content)
+        console.log(title);
+        let article = JSON.stringify(content);
+        console.log(typeof article);
+        console.log(article);
         let temp={
             title : title,
-            article : content
+            article : article
         }
         fetch('/user/blog/create', {
             method : 'post',
@@ -118,7 +127,7 @@ const UserBlogs = () => {
             <Box width="50%" bgcolor="" p={1} my={0.5} style={{marginLeft:'20%'}}>
                 <Paper>
                     <TextField
-                        placeholder = 'Title'
+                        placeholder = 'Enter title here...'
                         margin = 'normal'
                         autoFocus
                         fullWidth
@@ -127,15 +136,10 @@ const UserBlogs = () => {
                         value={title}
                         onChange={handleTitle}
                     />
-                    <TextareaAutosize
-                        aria-label='minimum height'
-                        rowsMin={5}
-                        style={{width : '96%', marginRight:'2%', marginLeft: '2%', marginTop: '10px'}}
-                        placeholder = 'Content'
-                        value={content}
-                        onChange={handleContent}
-                    /> 
-                    <Button onClick={handleNewPost} variant='contained' color='primary' style={{textTransform: 'none', marginLeft:'2%', marginBottom:'2%'}}>Post</Button>
+                    <Box width="90%" bgcolor="" p={1} my={0.5} style={{marginLeft:'5%'}}>
+                        <ArticleEditor content={content} setContent={setContent} Placeholder="What's on your mind ?" />
+                    </Box>
+                    <Button onClick={handleNewPost} variant='contained' color='primary' style={{textTransform: 'none', marginLeft:'2%', marginBottom:'2%', marginTop: '2%'}}>Post</Button>
                 </Paper>
             </Box>
         </div>
