@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@material-ui/icons": "^4.9.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "connect": "^3.7.0",
     "create-react-app": "^3.4.0",
